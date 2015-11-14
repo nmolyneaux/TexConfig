@@ -1,0 +1,87 @@
+%% Template to build my title page. Takes things like authors, title and so on
+%% as parameters passed from the main tex file. 
+%% AUTHOR: Nicholas Molyneaux (nicholas.molyneaux@bluewin.ch)
+\begin{titlepage}
+	\begin{center}
+		\ifdefined\logoLeft
+		\begin{minipage}{0.5\textwidth}
+			\begin{flushleft} \large
+			  			\includegraphics[width=3cm]{\logoLeft}
+			\end{flushleft}
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			\begin{flushright} \large
+			  			\includegraphics[width=3cm]{\logoRight}
+			\end{flushright}
+		\end{minipage}
+		\fi
+		\ifdefined\logoCenter
+			\includegraphics[width=3cm]{\logoCenter}
+		\else
+			\relax
+		\fi		
+		\\[2cm]
+		\huge\textbf{\textsc{\title}}
+                \ifdefined\subtitle
+                \\[0.5cm] \Large\subtitle
+                \else
+                \\[0.5cm]
+                \fi
+        \begin{normalsize}
+		\begin{tabularx}{1.2\textwidth}{XX}
+		  \begin{tabular}{l}
+                    \ifdefined\authorTwo
+		    \large\emph{Authors:}\\
+                    \else
+                    \large\emph{Author:}\\
+                    \relax
+                    \fi
+              	    % first author
+              	    \authorOne\\
+		    % second author
+                    \ifdefined\authorTwo
+                    \authorTwo\\
+                    \else
+                    \relax
+                    \fi   
+                    % third author
+                    \ifdefined\authorThree
+                    \authorThree\\
+                    \else
+                    \relax
+                    \fi                             
+		  \end{tabular}&
+			\begin{tabular}{r} 
+                          % first supervisor and 'Supervisors' word
+                          \ifdefined\supervisorOne
+                          \large\emph{Supervisors:}\\
+                          \supervisorOne\\
+                          \else
+                          \relax
+                          \fi
+                          % second author
+                          \ifdefined\supervisorTwo
+                          \supervisorTwo\\
+                          \else
+                          \relax
+                          \fi   
+                          % third author
+                          \ifdefined\supervisorThree
+                          \supervisorThree\\
+                          \else
+                          \relax
+			  \fi
+			\end{tabular}
+		\end{tabularx}		
+	\end{normalsize}
+	\vfill
+	\ifdefined\titleImage
+	\includegraphics[width=1\textwidth]{\titleImage}
+        \relax
+        \fi                             
+	\vfill
+	    {\large \institute}\\
+	    {\large \subinstitute}\\
+	    {\large \today}
+	\end{center}
+\end{titlepage}
