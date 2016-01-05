@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%% Page header and setup %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=1in]{geometry}
+
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\cfoot{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%% Bibliography style %%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\usepackage{varioref}
+\usepackage{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%% Special characters %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{siunitx}
+\usepackage{mathtools} % norm and absolute value
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% Figure related packages %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{pdfpages} % for inserting pdfs
+\usepackage{epstopdf}
+\usepackage[font=small,margin=1cm]{caption}
+\usepackage[margin=1cm]{subcaption}
+\usepackage{standalone} % inserting full standalone tex files
+\usepackage{tabularx} % allows the specification of the tabular width
+
+\usepackage{float} % allows using of [H] for figures
+\usepackage{adjustbox} % allows wide figures
+
+%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous packages %%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+%\usepackage{float}
+%\usepackage[listofformat=subparens]{subfig}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage[cyr]{aeguill}
+\usepackage[english]{babel}
+%\usepackage{xspace}
+\usepackage[T1]{fontenc}
+%\usepackage{pdfpages}
+%\usepackage{lscape}
+%\usepackage{tocbibind}
+%\usepackage{epstopdf}
+%\usepackage{multirow}
+%\usepackage{rotating}
+%\usepackage{varioref}
+\usepackage{hyperref}
+%\usepackage{cleveref}
+
+\usepackage{fancyvrb} % box around verbatim
+\usepackage{enumitem} % simple lists with numbers
+
+%% Adds the subfigures to the list of figures
+%\renewcommand{\thesubfigure}{\thefigure.\arabic{subfigure}}
+%\captionsetup[subfigure]{labelformat=simple,labelsep=colon,
+%listofformat=subsimple}
+%\captionsetup{lofdepth=2}
+%\makeatletter
+%\renewcommand{\p@subfigure}{}
+%\makeatother
+%%
+
+%% Adds a newpage before each section
+%%\let\stdsection\section
+%%\renewcommand\section{\newpage\stdsection}
+
+

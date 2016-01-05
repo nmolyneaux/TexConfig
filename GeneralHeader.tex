@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%% Page header and setup %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{etoolbox}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\cfoot{\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%% Bibliography style %%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\usepackage{varioref}
+\usepackage{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%% Special characters %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{siunitx} % \SI{12e-2}{m}
+\usepackage{mathtools} % norm and absolute value
+
+% overrides noirm and absolute value to have scalable bars
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% Figure related packages %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{pdfpages} % for inserting pdfs
+\usepackage{epstopdf}
+\usepackage[font=small,margin=1cm]{caption}
+\usepackage[margin=1cm]{subcaption}
+\usepackage{standalone} % inserting full standalone tex files
+\usepackage{tabularx} % allows the specification of the tabular width
+
+\usepackage{float} % allows using of [H] for figures
+%\usepackage{adjustbox} % allows wide figures
+\usepackage{changepage} % allows margin changes
+
+\usepackage{multirow}
+
+%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous packages %%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{amsmath}
+%\usepackage{float}
+%\usepackage[listofformat=subparens]{subfig}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage[cyr]{aeguill}
+\usepackage[english]{babel}
+%\usepackage{xspace}
+\usepackage[T1]{fontenc}
+%\usepackage{lscape}
+%\usepackage{tocbibind}
+%\usepackage{multirow}
+%\usepackage{rotating}
+%\usepackage{varioref}
+\usepackage{hyperref}
+%\usepackage{cleveref}
+
+\usepackage{fancyvrb} % box around verbatim
+\usepackage{enumitem} % simple lists with numbers
+
+%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Adds the subfigures to the list of figures
+%\renewcommand{\thesubfigure}{\thefigure.\arabic{subfigure}}
+%\captionsetup[subfigure]{labelformat=simple,labelsep=colon,
+%listofformat=subsimple}
+%\captionsetup{lofdepth=2}
+%\makeatletter
+%\renewcommand{\p@subfigure}{}
+%\makeatother
+%%
+
+%% Adds a newpage before each section
+%\let\stdsection\section
+%\renewcommand\section{\newpage\stdsection}
+
+% use toggle (from etoolbox) around a verbatim command. improvement of the default \iftoggle
+\makeatletter
+\newcommand{\iftoggleverb}[1]{%
+  \ifcsdef{etb@tgl@#1}
+    {\csname etb@tgl@#1\endcsname\iftrue\iffalse}
+    {\etb@noglobal\etb@err@notoggle{#1}\iffalse}%
+}
+\makeatother
+
